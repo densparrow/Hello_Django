@@ -55,7 +55,7 @@ ROOT_URLCONF = 'Den_2022.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['Den_2022/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
