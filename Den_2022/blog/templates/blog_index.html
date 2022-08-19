@@ -1,13 +1,20 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "base.html" %}
+{% block page_content %}
+<div class="col-md-8 offset-md-2">
+  <h1>Блог</h1>
+  <hr>
+  {% for post in posts %}
+  <h2><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h2>
+  <small>
+      {{ post.created_on.date }}
+      Категории:
+      {% for category in post.categories.all %}
+      <a href="">
+          {{ category.name }}
+      </a>
+      {% endfor %}
+  </small>
+  <p>{{ post.body | slice:":400" }}...</p>
+  {% endfor %}
+</div>
+{% endblock %}

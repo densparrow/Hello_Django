@@ -16,13 +16,6 @@ class Post(models.Model):
     categories = models.ManyToManyField('Category', related_name='posts')
 
 
-# Самостоятельно создайте модель Comment для комментариев со следующими полями:
-# author – CharField
-# body – TextField
-# cteated_on – DatetimeField ( назначает текущую дату и время этому полю всякий раз, когда создается экземпляр этого класса)
-# post – ForeignKey к модели Post
-
-
 class Comment(models.Model):
     author = models.CharField(max_length=30)
     body = models.TextField()
